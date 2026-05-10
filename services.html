@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heather Arbuckle – Email & CRM Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f8f8f8;
+      --light: #f0f0f0;
+      --mid: #999;
+      --dark: #1a1a1a;
+      --grad: linear-gradient(90deg, #b44fe8, #3ec6e0);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .grad {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* BRAND BAR */
+    .brand-bar {
+      padding: 28px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-accent {
+      width: 28px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--grad);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+    }
+
+    .brand-pipe {
+      font-size: 13px;
+      color: var(--light);
+    }
+
+    .brand-title {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--mid);
+    }
+
+    .hero {
+      padding: 64px 40px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      font-weight: 400;
+      color: #555;
+      max-width: 620px;
+      line-height: 1.6;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--light);
+      margin: 0 40px;
+    }
+
+    section {
+      padding: 80px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    section h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      color: #444;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--off-white);
+      border-radius: 4px;
+      padding: 36px 32px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    .service-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--light);
+      color: #555;
+    }
+
+    .platforms-block {
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid var(--light);
+    }
+
+    .ghl-note {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .platform-chip {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border: 1.5px solid var(--light);
+      border-radius: 40px;
+      color: #333;
+    }
+
+    .platform-chip.primary {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .result-card {
+      padding: 40px 32px;
+      background: var(--off-white);
+      border-radius: 4px;
+    }
+
+    .result-card .client {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      margin-bottom: 16px;
+    }
+
+    .stat-number {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .result-card .result-note {
+      font-size: 14px;
+      color: #777;
+      margin-top: 20px;
+      line-height: 1.6;
+      border-top: 1px solid var(--light);
+      padding-top: 16px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .price-card {
+      background: var(--off-white);
+      border-radius: 4px;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.featured {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .price-card .price-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .price-card.featured .price-label { color: #666; }
+
+    .price-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .price-card.featured h3 { color: #fff; }
+
+    .price-amount {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .price-card.featured .price-amount { color: #fff; }
+
+    .price-note {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    .price-card.featured .price-note { color: #666; }
+
+    .price-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .price-card.featured .price-desc { color: #aaa; }
+
+    .price-depends {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #333;
+      font-style: italic;
+    }
+
+    .price-card:not(.featured) .price-depends {
+      border-top-color: var(--light);
+      color: #999;
+    }
+
+    footer {
+      padding: 60px 40px;
+      border-top: 1px solid var(--light);
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer p {
+      font-size: 15px;
+      color: #888;
+    }
+
+    footer a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      background-image: var(--grad);
+      background-size: 100% 2px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      padding-bottom: 2px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- BRAND BAR -->
+  <div class="brand-bar">
+    <div class="brand-accent"></div>
+    <span class="brand-name">Heather Arbuckle</span>
+    <span class="brand-pipe">/</span>
+    <span class="brand-title">Email &amp; CRM Systems Architect</span>
+  </div>
+  <hr style="border: none; border-top: 1px solid #f0f0f0; margin: 0 40px;" />
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">Email Marketing &amp; CRM Systems</p>
+    <h1>What if your<br/><span class="grad">backend worked</span><br/>while you slept?</h1>
+    <p class="hero-sub">I build the automations, funnels, and CRM infrastructure that turn a contact list into a revenue channel and keep it running on its own.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- SERVICES -->
+  <section>
+    <p class="section-label">What I Do</p>
+    <h2>The full picture.</h2>
+    <p>From the first opt-in to the fifth purchase, I cover every touchpoint in between.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>CRM Management</h3>
+        <p>Setup, segmentation, pipeline visibility, and the ongoing data hygiene that keeps everything accurate. A lot of businesses have a CRM that's technically in place but practically useless. I fix that.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Funnel Building</h3>
+        <p>I map and build the full customer journey from first touch to purchase. Landing pages, opt-in flows, offer sequencing, built with conversion logic in mind. Less manual follow-up, more conversions happening on their own.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Email Automations</h3>
+        <p>The sequences that run on their own and keep revenue coming in between campaigns.</p>
+        <div class="tags">
+          <span class="tag">Welcome &amp; Onboarding</span>
+          <span class="tag">Brand Indoctrination</span>
+          <span class="tag">Evergreen Drips</span>
+          <span class="tag">Nurture</span>
+          <span class="tag">Win-Back</span>
+          <span class="tag">Cross-Sell</span>
+          <span class="tag">Feedback</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>E-Commerce Flows</h3>
+        <p>The automated touchpoints every e-commerce brand needs running from day one.</p>
+        <div class="tags">
+          <span class="tag">Abandoned Cart</span>
+          <span class="tag">Order Confirmation</span>
+          <span class="tag">Shipping</span>
+          <span class="tag">Price Drops</span>
+          <span class="tag">Back in Stock</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>Campaigns &amp; One-Offs</h3>
+        <p>Product launches, waitlists, quiz result sequences, and list cleaning. I build the sunset flows that remove chronically unengaged contacts before they start hurting your deliverability.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Meta Tracking Setup</h3>
+        <p>I connect CRM pipeline data and funnel events back into Meta so your media buyers have clean conversion signals to work with. If your ads team is optimizing on bad data, this is what gets it sorted.</p>
+      </div>
+
+    </div>
+
+    <div class="platforms-block">
+      <p class="section-label">Platform Specialty</p>
+      <p class="ghl-note">GoHighLevel is my primary platform and where I have the deepest expertise. I've been building inside it at an agency level for years, across funnels, automations, pipelines, CRM architecture, workflows, and tracking. If you're already on GHL, there's no ramp-up needed. If you're thinking about making the switch, I can help you get it set up the right way from the start.</p>
+      <div class="platforms">
+        <span class="platform-chip">GoHighLevel</span>
+        <span class="platform-chip">ActiveCampaign</span>
+        <span class="platform-chip">HubSpot</span>
+        <span class="platform-chip">Klaviyo</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- RESULTS -->
+  <section>
+    <p class="section-label">Results</p>
+    <h2>The numbers<br/>don't need<br/><span class="grad">much explaining.</span></h2>
+
+    <div class="results-grid">
+
+      <div class="result-card">
+        <p class="client">Agency Partnership</p>
+        <div class="stat">
+          <div class="stat-number grad">4 yrs</div>
+          <div class="stat-label">Ongoing, trusted relationship</div>
+        </div>
+        <p class="result-note">I've owned all CRM infrastructure, builds, optimization, and ongoing management for an agency going on four years now. It started as a project and turned into a long-term partnership because the work kept delivering.</p>
+      </div>
+
+      <div class="result-card">
+        <p class="client">Beverage Brand — Starting from Zero</p>
+        <div class="stat">
+          <div class="stat-number grad">22%</div>
+          <div class="stat-label">of total revenue from email in 90 days</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number grad">21%</div>
+          <div class="stat-label">of total revenue from automated flows alone</div>
+        </div>
+        <p class="result-note">Average order value grew 4% to $38.30. Email went from zero to a primary revenue driver in three months, and the automated flows kept running without anyone touching them.</p>
+      </div>
+
+      <div class="result-card">
+        <p class="client">Skincare E-Commerce — Full Takeover</p>
+        <div class="stat">
+          <div class="stat-number grad">240k</div>
+          <div class="stat-label">subscribers grown from under 6k in 2 years</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number grad">$2.3M</div>
+          <div class="stat-label">single month peak revenue (November)</div>
+        </div>
+        <p class="result-note">Took over a list under 6,000 contacts generating around $1,500 a month. Two years later, consistent $1M+ months with a peak of $2.3 million in a single November.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRICING -->
+  <section>
+    <p class="section-label">Getting Started</p>
+    <h2>There's a lot we can<br/><span class="grad">build together.</span></h2>
+    <p>Honestly, this is my favorite part. Whether you're starting from zero or inheriting an underperforming program, the right infrastructure changes everything. Pick a starting point below and reach out. I'd love to hear what you're working with.</p>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <p class="price-label">Start Here</p>
+        <h3>Audit</h3>
+        <div class="price-amount">$500</div>
+        <p class="price-note">One-time</p>
+        <p class="price-desc">A full review of your CRM setup, email program, or funnel. You get a clear breakdown of what's working, what isn't, and a prioritized action plan for what to fix first. Good starting point if you're not sure where things stand.</p>
+      </div>
+
+      <div class="price-card">
+        <p class="price-label">Project</p>
+        <h3>Starter Build</h3>
+        <div class="price-amount">$1,500–$2,500</div>
+        <p class="price-note">One-time project</p>
+        <p class="price-desc">CRM setup, one or two core automation flows, and a functional funnel to start capturing and converting leads. Best for businesses just getting started or switching platforms.</p>
+        <p class="price-depends">Price depends on number of flows needed and how complex the segmentation logic is.</p>
+      </div>
+
+      <div class="price-card featured">
+        <p class="price-label">Full Build</p>
+        <h3>Full Program Build</h3>
+        <div class="price-amount grad">$5,000–$10,000</div>
+        <p class="price-note">One-time project, scoped after a discovery call</p>
+        <p class="price-desc">The complete setup. CRM architecture, full automation suite, funnel build, and Meta tracking. Built to run on its own and grow with you.</p>
+        <p class="price-depends">Price depends on list size, number of segments being built out, and total flow count.</p>
+      </div>
+
+      <div class="price-card">
+        <p class="price-label">Ongoing</p>
+        <h3>Monthly Retainer</h3>
+        <div class="price-amount">$1,500–$3,000</div>
+        <p class="price-note">Per month</p>
+        <p class="price-desc">Ongoing management, campaign execution, list health, flow optimization, and whatever else comes up. Light touch management sits at the lower end. Full management with active building sits at the higher end.</p>
+        <p class="price-depends">Price depends on list size, how often campaigns go out, and whether we're in active build mode or steady-state management.</p>
+      </div>
+
+      <div class="price-card">
+        <p class="price-label">Flexible</p>
+        <h3>Hourly</h3>
+        <div class="price-amount">$75</div>
+        <p class="price-note">Per hour</p>
+        <p class="price-desc">Available for existing clients or clearly scoped project work. Best when you already know exactly what you need done.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer>
+    <p>Heather Arbuckle | Email &amp; CRM Systems Architect</p>
+    <a href="mailto:me@heatherarbuckle.com">me@heatherarbuckle.com</a>
+  </footer>
+
+</body>
+</html>
